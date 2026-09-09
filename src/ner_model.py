@@ -11,7 +11,7 @@ def extract_information(text):
 
     email = re.search(r'[\w\.-]+@[\w\.-]+\.\w+', text)
     if email:
-        information[email] = email.group()
+        information["email"] = email.group()
 
     phone = re.search(r'(\+?\d[\d\s\-]{8,}\d)', text)
     if phone:
@@ -23,5 +23,20 @@ def extract_information(text):
 
     for skill in possible_skills:
         if skill.lower() in text.lower():
-            information[skill].add(skill)
+            information["skills"].append(skill)
     return information
+
+if __name__ == "__main__":
+
+    sample_text = """
+    John Doe
+    john@example.com
+    +977 9812345678
+
+    Skills:
+    Python, Java, SQL, PyTorch, Git
+    """
+
+    result = extract_information(sample_text)
+
+    print(result)
