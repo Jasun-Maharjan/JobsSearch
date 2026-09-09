@@ -21,4 +21,7 @@ def extract_information(text):
         "Django","Flask","Relational Databases","SQL","SQLite","Spring Boot","Machine Learning","Artificial Intelligence",
         "AI","Deep Learning","Typescript","TailwindCSS","JDBC","PyTorch","Docker","Git","Github","AWS","Docker"]
 
-    
+    for skill in possible_skills:
+        if skill.lower() in text.lower():
+            information[skill].add(skill)
+    return information
