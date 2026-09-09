@@ -42,3 +42,11 @@ def extract_resume_text(file_path):
         raise ValueError(
             f"Unsupported file type: {extension}"
         )
+
+
+
+resume_text = extract_resume_text(
+    "data/resume/CV.pdf"
+)
+
+print(resume_text)
