@@ -16,3 +16,9 @@ def extract_information(text):
     phone = re.search(r'(\+?\d[\d\s\-]{8,}\d)', text)
     if phone:
         information["phone"] = phone.group()
+
+    possible_skills = ["Python","Java","C","C#","C++","Rust","Swift","Javascript","HTML","CSS","React","Node.js"
+        "Django","Flask","Relational Databases","SQL","SQLite","Spring Boot","Machine Learning","Artificial Intelligence",
+        "AI","Deep Learning","Typescript","TailwindCSS","JDBC","PyTorch","Docker","Git","Github","AWS","Docker"]
+
+    
