@@ -1,4 +1,5 @@
 import re
+from file_parser import extract_resume_text
 
 def extract_information(text):
     information={
@@ -13,7 +14,7 @@ def extract_information(text):
     if email:
         information["email"] = email.group()
 
-    phone = re.search(r'(\+?\d[\d\s\-]{8,}\d)', text)
+    phone = re.search(r'(?<!\d)(?:\+977[-\s]?)?(?:98|97)\d{8}(?!\d)', text)
     if phone:
         information["phone"] = phone.group()
 
@@ -28,15 +29,9 @@ def extract_information(text):
 
 if __name__ == "__main__":
 
-    sample_text = """
-    John Doe
-    john@example.com
-    +977 9812345678
+    resume_path = "data/resume/CV.pdf"
 
-    Skills:
-    Python, Java, SQL, PyTorch, Git
-    """
+    resume_text = extract_resume_text(resume_path)
 
-    result = extract_information(sample_text)
-
-    print(result)
+    information = extract_information(resume_text)
+    print(information)
