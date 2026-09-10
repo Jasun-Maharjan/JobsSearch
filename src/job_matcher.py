@@ -13,17 +13,17 @@ def check_similarity(resume_text, job_text):
     return similarity[0][0]
 
 def get_score(result):
-    return result["score"]
+    return result["Score"]
 
 def rank_jobs(resume_text,jobs):
     results=[]
 
     for job in jobs:
-        score = cosine_similarity(resume_text,job["description"])
+        score = check_similarity(resume_text,job["description"])
 
         results.append({
             "Title": job["title"],
-            "Similarity score": score
+            "Score": score
         })
 
     results.sort(key=get_score, reverse=True)
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     print("Jobs Rankings:-")
 
     for result in results:
-        Match_percent = round(result["score"]*100, 2)
+        Match_percent = round(result["Score"]*100, 2)
 
         print(result["Title"],"-->",Match_percent,"%")
 
