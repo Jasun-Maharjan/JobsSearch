@@ -45,8 +45,9 @@ def extract_resume_text(file_path):
 
 
 
-resume_text = extract_resume_text(
-    "data/resume/CV.pdf"
-)
+if __name__ == "__main__":
+    resume_text = extract_resume_text(
+        "data/resume/CV.pdf"
+    )
 
-print(resume_text)
+    print(resume_text)
