@@ -31,7 +31,27 @@ def rank_jobs(resume_text,jobs):
 
 if __name__ == "__main__":
     resume = extract_resume_text("data/resume/CV.pdf")
-    sample_job = []
+    sample_job = [{
+            "title": "Python Developer",
+            "description": """
+            Looking for a Python developer with experience
+            in machine learning, SQL and backend development.
+            """
+        },
+        {
+            "title": "Java Developer",
+            "description": """
+            Looking for a Java developer with strong
+            experience in Spring Boot and Java enterprise systems.
+            """
+        },
+        {
+            "title": "Machine Learning Intern",
+            "description": """
+            Looking for someone with Python, machine learning,
+            PyTorch and data analysis experience.
+            """
+        }]
 
     results = rank_jobs(resume, sample_job)
     print("Jobs Rankings:-")
