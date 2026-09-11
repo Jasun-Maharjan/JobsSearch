@@ -26,7 +26,7 @@ def search_jobs(resume_text, jobs, index, number_of_results=3):
     distances, positions = index.search(resume_embedding,number_of_results)
     results = []
 
-    for position, distance in zip(position[0], distances[0]):
+    for position, distance in zip(positions[0], distances[0]):
         results.append({
             "title": jobs[position]["title"],
             "description": jobs[position]["description"],
