@@ -11,6 +11,10 @@ language model to generate personalized feedback about why the candidate
 matches, which skills may be missing, and how the candidate can improve.
 The application provides the results through a Streamlit web interface.
 
+## Workflow
+
+![Project Workflow](photos/WorkFlow.png)
+
 ## User Instructions
 
 ### 1. Start the application
@@ -64,6 +68,13 @@ ollama run llama3.2
 
 The model configured in the application must match the model available
 in your local Ollama installation.
+
+## Demo
+![CareerMatch AI Architecture](photos/1.png)
+
+![CareerMatch AI Architecture](photos/2.png)
+
+![CareerMatch AI Architecture](photos/3.png)
 
 ## Developer Instructions
 
