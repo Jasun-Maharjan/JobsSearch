@@ -3,7 +3,7 @@ from pathlib import Path
 from src.job.agent import run_job_matching
 
 sl.set_page_config(
-    page_title="AI Job Matcher",
+    page_title="CareerMatch AI",
     page_icon="🤖",
     layout="wide"
 )
@@ -33,7 +33,6 @@ sl.markdown("""
     }
 
     .job-card {
-        background: white;
         padding: 25px;
         border-radius: 15px;
         margin-bottom: 20px;
@@ -52,7 +51,6 @@ sl.markdown("""
     }
 
     .feedback-box {
-        background: #f8fafc;
         padding: 15px;
         border-radius: 10px;
         border-left: 4px solid #2563eb;
@@ -64,7 +62,7 @@ sl.markdown("""
 
 
 sl.markdown(
-    '<div class="main-title">🤖 AI Job Matcher</div>',
+    '<div class="main-title">🤖 CareerMatch AI</div>',
     unsafe_allow_html=True
 )
 
@@ -154,21 +152,13 @@ if "results" in sl.session_state:
 
         sl.markdown(
             f"""
-            <div class="job-card">
+<div class="job-card">
+<div style="display:flex; justify-content:space-between; align-items:center;">
+<div class="job-title">#{rank} {result["title"]}</div>
 
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-
-                    <div class="job-title">
-                        #{rank} {result["title"]}
-                    </div>
-
-                    <div class="score">
-                        {score}% Match
-                    </div>
-
-                </div>
-
-            </div>
+<div class="score">{score}% Match</div>
+</div>
+</div>
             """,
             unsafe_allow_html=True
         )
@@ -178,7 +168,7 @@ if "results" in sl.session_state:
         with sl.expander("🤖 View AI Analysis", expanded=(rank == 1)):
 
             sl.markdown(
-                '<div class="feedback-box">',
+            '<div class="feedback-box">',
                 unsafe_allow_html=True
             )
 
