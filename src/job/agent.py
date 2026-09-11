@@ -15,22 +15,3 @@ def run_job_matching(resume_file, jobs_file):
 
     return results
 
-if __name__ == "__main__":
-
-    results = run_job_matching(
-        "data/resume/CV.pdf",
-        "data/job/Sample_jobs.csv"
-    )
-
-    print("\n===== JOB MATCHING RESULTS =====\n")
-
-    for result in results:
-
-        print("Job:", result["title"])
-        print("Distance:", result["distance"])
-        print("Match Score:", result["score"], "%")
-
-        print("\nAI Feedback:")
-        print(result["feedback"])
-
-        print("\n" + "=" * 50)
