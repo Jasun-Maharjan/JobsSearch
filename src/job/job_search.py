@@ -19,3 +19,18 @@ def create_job_index(jobs):
 
     return index
 
+def search_jobs(resume_text, jobs, index, number_of_results=3):
+    resume_embedding = model.encode([resume_text])
+    resume_embedding = np.array(resume_embedding).astype("float32")
+
+    distances, positions = index.search(resume_embedding,number_of_results)
+    results = []
+
+    for position, distance in zip(position[0], distances[0]):
+        results.append({
+            "title": jobs[position]["title"],
+            "description": jobs[position]["description"],
+            "distance": float(distance)
+        })
+
+    return results
