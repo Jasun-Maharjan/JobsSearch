@@ -14,5 +14,5 @@ results = search_jobs(resume, jobs, index, number_of_results=3)
 print("\nMost Matching Jobs\n")
 for result in results:
     print("Job: ",result["title"])
-    print("Distance: ", result["distance"])
+    print("Match score: ", result["score"], "%")
     print()

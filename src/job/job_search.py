@@ -19,6 +19,10 @@ def create_job_index(jobs):
 
     return index
 
+def calculate_score(distance):
+    score = 1/(1+distance)
+    return round(score * 100,2)
+
 def search_jobs(resume_text, jobs, index, number_of_results=3):
     resume_embedding = model.encode([resume_text])
     resume_embedding = np.array(resume_embedding).astype("float32")
@@ -30,7 +34,8 @@ def search_jobs(resume_text, jobs, index, number_of_results=3):
         results.append({
             "title": jobs[position]["title"],
             "description": jobs[position]["description"],
-            "distance": float(distance)
+            "distance": float(distance),
+            "score": calculate_score(float(distance))
         })
 
     return results
